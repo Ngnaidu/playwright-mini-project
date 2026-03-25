@@ -1,85 +1,310 @@
-# Playwright Mini Automation Project
+# Playwright UI + API Automation Mini Project
 
-This project demonstrates UI and API automation using Playwright.
+## 📌 Project Overview
 
-## UI Tests
+This project demonstrates **end-to-end UI and API automation using Playwright**.
+It covers essential automation concepts including UI testing, API testing, assertions, locators, waits, data-driven testing, API chaining, and performance validation.
 
-1. Page Load Validation
-Validates that the application loads successfully and the page title and heading are visible.
-
-2. Locator Validation
-Demonstrates locating elements using text, role, and CSS selectors.
-
-3. User Actions
-Validates user interactions such as entering text, clicking buttons, selecting dropdowns, and toggling checkboxes.
-
-4. Assertions
-Validates UI behavior including element visibility, text validation, URL validation, and attribute validation.
-
-5. Waits and Dynamic Content
-Handles dynamic content loading and ensures elements appear after asynchronous operations.
-
-6. Login Flow
-Validates successful login using valid credentials.
-
-7. Negative Login
-Validates error message when invalid credentials are entered.
-
-8. Complex UI Handling
-Handles alerts, iframes, and new tab interactions.
-
-9. Data Driven UI Test
-Executes tests using multiple inputs from external JSON test data.
-
-10. Network Validation
-Validates that UI actions trigger correct network requests.
+The framework is structured using **Page Object Model (POM)** and **fixtures** to improve code reusability and maintainability.
 
 ---
 
-## API Tests
+# 🧠 Objective
 
-1. GET Request
-Fetch data and validate response status.
+The objective of this project is to build a **Playwright automation framework** that validates both UI and backend APIs while following best practices such as:
 
-2. POST Request
-Create resource and validate response data.
-
-3. PUT Request
-Update existing resource.
-
-4. DELETE Request
-Delete resource and validate response.
-
-5. Query Parameters
-Validate filtered API responses.
-
-6. Response Validation
-Validate JSON structure and data types.
-
-7. Negative API Test
-Call invalid endpoints and validate error response.
-
-8. API Chaining
-Use data from one API request in another.
-
-9. Data Driven API Test
-Run tests with multiple IDs.
-
-10. Performance Check
-Measure API response time.
+* Modular project structure
+* Reusable components
+* Data-driven testing
+* Independent test cases
+* Real behavior validation
 
 ---
 
-## Concepts Covered
+# 📁 Project Structure
 
-- UI Automation
-- API Automation
-- Assertions
-- Locators
-- Waits
-- Negative Testing
-- Data Driven Testing
-- API Chaining
-- Performance Testing
-- Page Object Model
-- Fixtures
+```
+playwright-mini-project
+│
+├── tests/
+│   ├── ui.spec.js        # UI automation tests
+│   ├── api.spec.js       # API automation tests
+│   └── e2e.spec.js       # End-to-end workflow tests
+│
+├── pages/
+│   └── appPages.js       # Page Object Model
+│
+├── fixtures/
+│   └── testSetup.js      # Reusable test setup
+│
+├── test-data/
+│   └── data.json         # External test data
+│
+├── playwright.config.js
+├── package.json
+└── README.md
+```
+
+---
+
+# ⚙️ Technologies Used
+
+* Playwright
+* JavaScript
+* Node.js
+* Git
+* GitHub
+
+---
+
+# 🌐 Websites Used for Testing
+
+UI Testing:
+
+* https://the-internet.herokuapp.com
+* https://www.saucedemo.com
+* https://demo.playwright.dev/todomvc
+
+API Testing:
+
+* https://jsonplaceholder.typicode.com
+* https://reqres.in
+* https://dummyjson.com
+
+---
+
+# 🖥 UI Test Scenarios
+
+### 1️⃣ Page Load Validation
+
+* Open application
+* Validate page title
+* Verify main heading visibility
+
+### 2️⃣ Locator Validation
+
+Different locator strategies were implemented:
+
+* Text locator
+* Role locator
+* CSS locator
+
+### 3️⃣ User Actions
+
+Automation of common UI interactions:
+
+* Enter text
+* Click button
+* Select dropdown value
+* Toggle checkbox
+
+### 4️⃣ Assertions
+
+Validation checks such as:
+
+* Element visibility
+* Text validation
+* URL validation
+* Attribute validation
+
+### 5️⃣ Waits & Dynamic Content
+
+Handled asynchronous content loading using Playwright's auto-waiting.
+
+### 6️⃣ Login Flow
+
+* Enter valid credentials
+* Submit login form
+* Validate successful navigation
+
+### 7️⃣ Negative Login
+
+* Enter invalid credentials
+* Validate error message
+
+### 8️⃣ Complex UI Handling
+
+Handled advanced browser interactions:
+
+* JavaScript alerts
+* Iframes
+* New browser tabs
+
+### 9️⃣ Data Driven UI Test
+
+Used external JSON test data to run tests with multiple inputs.
+
+### 🔟 Network Validation
+
+Verified that UI actions trigger expected network requests.
+
+---
+
+# 🔗 API Test Scenarios
+
+### 1️⃣ GET Request
+
+Fetch data and validate:
+
+* Status code
+* Response structure
+
+### 2️⃣ POST Request
+
+Create new resource and validate returned data.
+
+### 3️⃣ PUT / PATCH Request
+
+Update existing resource and verify updated fields.
+
+### 4️⃣ DELETE Request
+
+Delete a resource and validate response.
+
+### 5️⃣ Query Parameters
+
+Send request with filters and validate returned results.
+
+### 6️⃣ Response Validation
+
+Validate:
+
+* status
+* headers
+* JSON structure
+* data types
+
+### 7️⃣ Negative API Test
+
+Call invalid endpoints and verify error responses.
+
+### 8️⃣ API Chaining
+
+Use response data from one API request in another request.
+
+### 9️⃣ Data Driven API Test
+
+Execute API tests using multiple IDs from JSON test data.
+
+### 🔟 Performance Check
+
+Measure API response time and validate acceptable performance.
+
+---
+
+# 🔄 End-to-End Test Flow
+
+### Complete User Flow
+
+1. Open application
+2. Perform login
+3. Execute main user action
+4. Validate final result
+
+### Negative End-to-End Flow
+
+1. Attempt login with invalid credentials
+2. Validate system error handling
+
+---
+
+# 🧩 Framework Design
+
+## Page Object Model (POM)
+
+All page locators and reusable methods are maintained in:
+
+```
+pages/appPages.js
+```
+
+This improves:
+
+* maintainability
+* code reuse
+* readability
+
+---
+
+## Fixtures
+
+Reusable setup logic such as opening base URL and common configuration is handled using:
+
+```
+fixtures/testSetup.js
+```
+
+---
+
+## Test Data
+
+External JSON data is stored in:
+
+```
+test-data/data.json
+```
+
+This enables **data-driven testing**.
+
+Example:
+
+```
+valid credentials
+invalid credentials
+API IDs
+form inputs
+```
+
+---
+
+# ▶️ How to Run the Project
+
+### Install dependencies
+
+```
+npm install
+```
+
+### Run all tests
+
+```
+npx playwright test
+```
+
+### Run specific test file
+
+```
+npx playwright test tests/ui.spec.js
+```
+
+### View HTML report
+
+```
+npx playwright show-report
+```
+
+---
+
+# 📊 Concepts Covered
+
+* UI Automation
+* API Automation
+* Assertions
+* Locators
+* User Actions
+* Wait Handling
+* Negative Testing
+* Data Driven Testing
+* API Chaining
+* Performance Testing
+* Page Object Model
+* Fixtures
+* End-to-End Testing
+
+---
+
+# 🚀 Author
+
+**Nandhigana Gowri Naidu**
+
+Playwright Automation Project
