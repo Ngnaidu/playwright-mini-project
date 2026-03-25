@@ -1,0 +1,18 @@
+{
+  "validUser": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+
+  "invalidUser": {
+    "username": "locked_user",
+    "password": "wrong_pass"
+  },
+
+  "todoInputs": [
+    { "task": "Learn Playwright" },
+    { "task": "Automation Practice" }
+  ],
+
+  "apiIds": [1, 2, 3, 4]
+}
